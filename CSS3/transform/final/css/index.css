@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 背景 */
+
+.sky-grass {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(rgb(196, 228, 253), rgb(255, 255, 255), rgb(148, 190, 89));
+}
+
+.sky-grass>.sky>.cloud {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.sky-grass>.sky>.cloud:nth-child(2n+1)::before,
+.sky-grass>.sky>.cloud:nth-child(2n+1)::after,
+.sky-grass>.sky>.cloud:nth-child(2n)::before,
+.sky-grass>.sky>.cloud:nth-child(2n)::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: " ";
+    display: block;
+    height: 100px;
+    width: 100px;
+}
+
+/* 云的通用形状 */
+
+.sky-grass>.sky>.cloud:nth-child(2n+1)::before,
+.sky-grass>.sky>.cloud:nth-child(2n)::before {
+    position: absolute;
+    left: 40px;
+    top: -15px;
+    width: 110px;
+    height: 110px;
+}
+
+.sky-grass>.sky>.cloud:nth-child(2n+1)::after,
+.sky-grass>.sky>.cloud:nth-child(2n)::after {
+    position: absolute;
+    left: 110px;
+    top: 25px;
+    width: 80px;
+    height: 80px;
+}
+
+/* 第一块云 */
+
+.sky-grass>.sky>.cloud:nth-child(1) {
+    right: 700px;
+    top: 50px;
+    transform: translateX(1600px);
+}
+
+/* 第二块云 */
+
+.sky-grass>.sky>.cloud:nth-child(2) {
+    right: 300px;
+    top: 180px;
+    transform: translateX(1600px);
+}
+
+/* 第三块云 */
+
+.sky-grass>.sky>.cloud:nth-child(3) {
+    left: 700px;
+    top: 200px;
+    opacity: .8;
+    transform: scale(.75) translateX(1600px);
+}
+
+/* 第四块云 */
+
+.sky-grass>.sky>.cloud:nth-child(4) {
+    left: 900px;
+    top: 100px;
+    opacity: .9;
+    transform: scale(1.2) translateX(1600px);
+}
+
+/* 第五块云 */
+
+.sky-grass>.sky>.cloud:nth-child(5) {
+    left: 1380px;
+    top: 70px;
+    opacity: .7;
+    transform: scale(.74) translateX(1600px);
+}
+
+/* 针对不同的云做速率变化,这里只简单的分为奇偶数情况 */
+
+.sky-grass>.sky>.cloud:nth-child(2n) {
+    -webkit-animation: cloudMove 15s ease-in-out 1s infinite;
+    -o-animation: cloudMove 15s ease-in-out 1s infinite;
+    -moz-animation: cloudMove 15s ease-in-out 1s infinite;
+    animation: cloudMove 15s ease-in-out 1s infinite;
+}
+
+.sky-grass>.sky>.cloud:nth-child(2n+1) {
+    -webkit-animation: cloudMove 15s ease-in-out 2s infinite;
+    -o-animation: cloudMove 15s ease-in-out 2s infinite;
+    -moz-animation: cloudMove 15s ease-in-out 2s infinite;
+    animation: cloudMove 15s ease-in-out 2s infinite;
+}
+
+/* 云飘动动画 */
+
+@-webkit-keyframes cloudMove {
+    from {
+        transform: translateX(1600px);
+    }
+    to {
+        transform: translateX(-2000px);
+    }
+}
+
+@-moz-keyframes cloudMove {
+    from {
+        transform: translateX(1600px);
+    }
+    to {
+        transform: translateX(-2000px);
+    }
+}
+
+@-o-keyframes cloudMove {
+    from {
+        transform: translateX(1600px);
+    }
+    to {
+        transform: translateX(-2000px);
+    }
+}
+
+@keyframes cloudMove {
+    from {
+        transform: translateX(1600px);
+    }
+    to {
+        transform: translateX(-2000px);
+    }
+}
+
+/* 兔子 */
+
+.grass {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.grass>img {
+    position: absolute;
+    height: 200px;
+    right: 200px;
+    bottom: 50px;
+}
